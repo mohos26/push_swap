@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:01:08 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/06 13:12:46 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/07 21:17:04 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,37 +74,46 @@ int main(int ac, char **av)
 {
 	t_stackes	*stackes;
 	t_list		*lst;
+	int			aid;
 
 	stackes = ft_malloc(sizeof(t_stackes));
 	if (ac < 1)
 		ft_exit(1);
 	stackes->stack_a = ft_check_input(av);
 	stackes->stack_b = NULL;
-	ft_lst_create(&stackes, 1);
+	aid = 0;
 	while (!ft_is_sorted(stackes))
 	{
-		if (!ft_lstsize(stackes->stack_a))
+		if (aid)
 		{
-			ft_pa_all(&stackes);
+			ft_pa_big(&stackes);
+			if (!stackes->stack_b)
+				ft_pa_top(&stackes, ft_get_min(stackes->stack_a));
+		}
+		else if (ft_lstsize(stackes->stack_a) <= 3)
+		{
+			ft_sort_three(&stackes);
+			aid = 1;
 		}
 		else
-			ft_lst_create(&stackes, 0);
+			ft_pb_min(&stackes);
 	}
-	puts("****************");
-	lst = stackes->stack_a;
-	while (lst)
-	{
-		int *n = lst->content;
-		printf("%d\n", *n);
-		lst = lst->next;
-	}
-	puts("************");
-	lst = stackes->stack_b;
-	while (lst)
-	{
-		int *n = lst->content;
-		printf("%d\n", *n);
-		lst = lst->next;
-	}
+	// puts("************");
+	// lst = stackes->stack_a;
+	// while (lst)
+	// {
+	// 	int *n = lst->content;
+	// 	printf("%d\n", *n);
+	// 	lst = lst->next;
+	// }
+	// puts("************");
+	// lst = stackes->stack_b;
+	// while (lst)
+	// {
+	// 	int *n = lst->content;
+	// 	printf("%d\n", *n);
+	// 	lst = lst->next;
+	// }
+
 	ft_exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:54:51 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/06 11:51:04 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:59:24 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		ft_lstsize(t_list *lst);
 void	ft_lst_del_last(t_list **lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lst_del_first(t_list **lst);
-void	ft_lst_del_in(t_list **lst, int i);
 void	*ft_malloc(size_t size);
 void	ft_exit(int status);
 int		ft_atoi(const char *str);
@@ -63,6 +62,9 @@ int		ft_is_number(char *s);
 t_list	*ft_check_input(char **av);
 void	ft_pb_min(t_stackes **stackes);
 void	ft_pa_all(t_stackes **stackes);
-void	ft_lst_create(t_stackes **stackes, int flag);
+void	ft_pa_top(t_stackes **stackes, int i);
+void	ft_pa_big(t_stackes **stackes);
+int		ft_get_min(t_list *lst);
+void	ft_pb_top(t_stackes **stackes, int i);
 
 #endif

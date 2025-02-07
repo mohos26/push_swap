@@ -1,2 +1,0 @@
-- if any func in aid folder fail, exit programe
-- remove any protection of malloc
