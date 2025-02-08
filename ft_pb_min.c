@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:01:51 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/07 19:04:39 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/08 15:50:28 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int ft_get_min(t_list *lst)
 	int	j;
 
 	i = 0;
+	j = 0;
 	aid = *(lst->content);
 	while (lst)
 	{

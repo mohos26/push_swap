@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:01:08 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/07 21:17:04 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:15:43 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int main(int ac, char **av)
 		ft_exit(1);
 	stackes->stack_a = ft_check_input(av);
 	stackes->stack_b = NULL;
+	stackes->instructions = NULL;
 	aid = 0;
 	while (!ft_is_sorted(stackes))
 	{
@@ -98,6 +99,14 @@ int main(int ac, char **av)
 		else
 			ft_pb_min(&stackes);
 	}
+	// lst = ft_sieve(stackes->instructions);
+	lst = stackes->instructions;
+	while (lst)
+	{
+		puts((char*)lst->content);
+		lst = lst->next;
+	}
+
 	// puts("************");
 	// lst = stackes->stack_a;
 	// while (lst)

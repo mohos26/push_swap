@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:54:51 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/07 19:59:24 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:14:14 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ typedef struct s_list
 
 typedef struct s_stackes
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-}			t_stackes;
+	t_list		*stack_a;
+	t_list		*stack_b;
+	t_list	*instructions;
+}				t_stackes;
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -40,6 +41,7 @@ int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(const char *s, char c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+int		ft_strncmp(char *s1, char *s2, size_t n);
 
 int	ft_swap(t_list **stack);
 int ft_push(t_list **stack_a, t_list **stack_b);
@@ -66,5 +68,6 @@ void	ft_pa_top(t_stackes **stackes, int i);
 void	ft_pa_big(t_stackes **stackes);
 int		ft_get_min(t_list *lst);
 void	ft_pb_top(t_stackes **stackes, int i);
+t_list	*ft_sieve(t_list *instructions);
 
 #endif

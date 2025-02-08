@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:28:29 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/07 19:12:40 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/08 15:50:12 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_pa_top(t_stackes **stackes, int i)
 			ft_rra(*stackes);
 		else
 			ft_ra(*stackes);
-	aid = (*stackes)->stack_a;
+		aid = (*stackes)->stack_a;
 	}
 }
 
