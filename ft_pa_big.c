@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:06:05 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/08 15:44:11 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:21:01 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,20 @@
 
 static int	ft_aid(t_list *lst, int n)
 {
+	int		*aid;
 	int		i;
 	int		j;
-	int		*aid;
 
 	i = 0;
 	j = 0;
-	aid = NULL;
+	aid = ft_malloc(sizeof(int));
+	*aid = INT_MAX;
 	while (lst)
 	{
-		if (*(lst->content) - n > 0)
+		if (*(lst->content) - n > 0 && *aid > *(lst->content) - n)
 		{
-			if (aid && *aid > *(lst->content) - n)
-			{
-				*aid = *(lst->content) - n;
-				j = i;
-			}
-			else if (!aid)
-			{
-				aid = ft_malloc(sizeof(int));
-				*aid = *(lst->content) - n;
-				j = i;
-			}
+			*aid = *(lst->content) - n;
+			j = i;
 		}
 		i++;
 		lst = lst->next;
@@ -53,37 +45,31 @@ static int	ft_func(int x, int len)
 	return (x);
 }
 
+static int	ft_aid2(t_list *lst_a, int x, int i, int i2)
+{
+	return (ft_func(x, i) + ft_func(ft_aid(lst_a, i2), ft_lstsize(lst_a)));
+}
+
 static int	ft_best_step(t_stackes **stackes)
 {
-	t_list	*lst2;
-	int		*lst;
-	int		len_a;
+	t_list	*lst;
 	int		len_b;
 	int		aid;
 	int		i;
 	int		j;
 
-	len_a = ft_lstsize((*stackes)->stack_a);
-	len_b = ft_lstsize((*stackes)->stack_b);
-	i = 0;
-	lst = ft_malloc(sizeof(int)*len_b);
-	lst2 = (*stackes)->stack_b;
-	while (i < len_b)
-	{
-		lst[i] = ft_func(i, len_b) + ft_func(ft_aid((*stackes)->stack_a, *(lst2->content)), len_a) + 1;
-		lst2 = lst2->next;
-		i++;
-	}
-	aid = lst[0];
 	i = 0;
 	j = 0;
+	lst = (*stackes)->stack_b;
+	len_b = ft_lstsize((*stackes)->stack_b);
 	while (i < len_b)
 	{
-		if (aid > lst[i])
+		if (!i || aid > ft_aid2((*stackes)->stack_a, i, len_b, *(lst->content)))
 		{
-			aid = lst[i];
+			aid = ft_aid2((*stackes)->stack_a, i, len_b, *(lst->content));
 			j = i;
 		}
+		lst = lst->next;
 		i++;
 	}
 	return (j);
@@ -91,7 +77,8 @@ static int	ft_best_step(t_stackes **stackes)
 
 void	ft_pa_big(t_stackes **stackes)
 {
-	ft_pb_top(stackes, ft_best_step(stackes));
-	ft_pa_top(stackes, ft_aid((*stackes)->stack_a, *((*stackes)->stack_b->content)));
+	// ft_pb_top(stackes, ft_best_step(stackes));
+	ft_pa_top(stackes,
+		ft_aid((*stackes)->stack_a, *((*stackes)->stack_b->content)));
 	ft_pa(*stackes);
 }

@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:36:45 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/01/30 18:44:54 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/09 16:10:23 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ void	ft_lst_del_last(t_list **lst)
 	}
 	else
 		*lst = NULL;
-
 }

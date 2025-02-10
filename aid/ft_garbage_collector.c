@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:38:16 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/03 08:35:30 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/09 16:08:53 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ void	*ft_malloc(size_t size)
 	ft_free(ptr, 0);
 	return (ptr);
 }
-

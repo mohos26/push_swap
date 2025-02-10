@@ -6,16 +6,36 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:01:08 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/08 18:15:43 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:40:37 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+static void	ft_aid(t_stackes *stackes, int *lst)
+{
+	if ((lst[0] > lst[1] && lst[0] < lst[2]))
+		ft_sa(stackes);
+	else if (lst[0] < lst[1] && lst[0] > lst[2])
+		ft_rra(stackes);
+	else if ((lst[0] > lst[1] && lst[1] < lst[2]))
+		ft_ra(stackes);
+	else if (lst[0] > lst[1] && lst[1] > lst[2])
+	{
+		ft_sa(stackes);
+		ft_rra(stackes);
+	}
+	else if (lst[0] < lst[1] && lst[1] > lst[2])
+	{
+		ft_rra(stackes);
+		ft_sa(stackes);
+	}
+}
+
 void	ft_sort_three(t_stackes **stackes)
 {
-	t_list	*aid;
 	int		lst[3];
+	t_list	*aid;
 
 	aid = (*stackes)->stack_a;
 	if (ft_lstsize(aid) == 2)
@@ -28,29 +48,14 @@ void	ft_sort_three(t_stackes **stackes)
 		lst[0] = *(aid->content);
 		lst[1] = *(aid->next->content);
 		lst[2] = *(aid->next->next->content);
-		if ((lst[0] > lst[1] && lst[0] < lst[2]))
-			ft_sa(*stackes);
-		else if (lst[0] < lst[1] && lst[0] > lst[2])
-			ft_rra(*stackes);
-		else if ((lst[0] > lst[1] && lst[1] < lst[2]))
-			ft_ra(*stackes);
-		else if (lst[0] > lst[1] && lst[1] > lst[2])
-		{
-			ft_sa(*stackes);
-			ft_rra(*stackes);
-		}
-		else if (lst[0] < lst[1] && lst[1] > lst[2])
-		{
-			ft_rra(*stackes);
-			ft_sa(*stackes);
-		}
+		ft_aid(*stackes, lst);
 	}
 }
 
 int	ft_is_sorted(t_stackes *stackes)
 {
-	int 	*lst2[2];
-	t_list *lst;
+	int		*lst2[2];
+	t_list	*lst;
 
 	lst2[0] = NULL;
 	lst = stackes->stack_a;
@@ -70,59 +75,53 @@ int	ft_is_sorted(t_stackes *stackes)
 	return (!(stackes->stack_b && ft_lstsize(stackes->stack_b)));
 }
 
-int main(int ac, char **av)
+int	ft_get_min(t_list *lst, int flag)
+{
+	int	aid;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	aid = *(lst->content);
+	while (lst)
+	{
+		if (aid > *(lst->content))
+		{
+			aid = *(lst->content);
+			j = i;
+		}
+		lst = lst->next;
+		i++;
+	}
+	if (flag)
+		return (aid);
+	return (j);
+}
+
+int	main(int ac, char **av)
 {
 	t_stackes	*stackes;
-	t_list		*lst;
 	int			aid;
 
-	stackes = ft_malloc(sizeof(t_stackes));
 	if (ac < 1)
 		ft_exit(1);
+	aid = 0;
+	stackes = ft_malloc(sizeof(t_stackes));
 	stackes->stack_a = ft_check_input(av);
 	stackes->stack_b = NULL;
-	stackes->instructions = NULL;
-	aid = 0;
 	while (!ft_is_sorted(stackes))
 	{
 		if (aid)
 		{
 			ft_pa_big(&stackes);
 			if (!stackes->stack_b)
-				ft_pa_top(&stackes, ft_get_min(stackes->stack_a));
+				ft_pa_top(&stackes, ft_get_min(stackes->stack_a, 0));
 		}
-		else if (ft_lstsize(stackes->stack_a) <= 3)
-		{
+		else if (ft_lstsize(stackes->stack_a) <= 3 && !aid++)
 			ft_sort_three(&stackes);
-			aid = 1;
-		}
 		else
 			ft_pb_min(&stackes);
 	}
-	// lst = ft_sieve(stackes->instructions);
-	lst = stackes->instructions;
-	while (lst)
-	{
-		puts((char*)lst->content);
-		lst = lst->next;
-	}
-
-	// puts("************");
-	// lst = stackes->stack_a;
-	// while (lst)
-	// {
-	// 	int *n = lst->content;
-	// 	printf("%d\n", *n);
-	// 	lst = lst->next;
-	// }
-	// puts("************");
-	// lst = stackes->stack_b;
-	// while (lst)
-	// {
-	// 	int *n = lst->content;
-	// 	printf("%d\n", *n);
-	// 	lst = lst->next;
-	// }
-
 	ft_exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:01:46 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/08 16:36:08 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/09 16:13:05 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_rrb(t_stackes *stackes)
 {
-	ft_lstadd_back(&stackes->instructions, ft_lstnew("rrb"));
+	puts("rrb");
 	if (ft_reverse_rotate(&stackes->stack_b))
 		return (-1);
 	return (0);
