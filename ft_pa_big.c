@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:06:05 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/10 17:21:01 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:31:44 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	ft_best_step(t_stackes **stackes)
 
 void	ft_pa_big(t_stackes **stackes)
 {
-	// ft_pb_top(stackes, ft_best_step(stackes));
+	ft_pb_top(stackes, ft_best_step(stackes));
 	ft_pa_top(stackes,
 		ft_aid((*stackes)->stack_a, *((*stackes)->stack_b->content)));
 	ft_pa(*stackes);

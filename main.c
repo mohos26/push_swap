@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:01:08 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/10 16:40:37 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:21:36 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ int	main(int ac, char **av)
 	stackes = ft_malloc(sizeof(t_stackes));
 	stackes->stack_a = ft_check_input(av);
 	stackes->stack_b = NULL;
+	stackes->instructions = NULL;
 	while (!ft_is_sorted(stackes))
 	{
 		if (aid)
@@ -123,5 +124,6 @@ int	main(int ac, char **av)
 		else
 			ft_pb_min(&stackes);
 	}
+	ft_print_instructions(ft_sieve(stackes->instructions));
 	ft_exit(0);
 }

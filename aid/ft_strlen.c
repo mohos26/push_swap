@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sb.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 13:46:21 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/10 19:05:35 by mhoussas         ###   ########.fr       */
+/*   Created: 2024/10/22 09:52:04 by mhoussas          #+#    #+#             */
+/*   Updated: 2025/02/10 19:00:41 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int	ft_sb(t_stackes *stacks)
+size_t	ft_strlen(const char *s)
 {
-	ft_insadd_back(&stacks->instructions, ft_insnew("sb"));
-	if (ft_swap(&stacks->stack_b))
-		return (-1);
-	return (0);
+	size_t	lenght;
+
+	lenght = 0;
+	while (*s++)
+		lenght++;
+	return (lenght);
 }
