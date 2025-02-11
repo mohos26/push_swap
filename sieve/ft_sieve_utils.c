@@ -1,23 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_instructions.c                            :+:      :+:    :+:   */
+/*   ft_sieve_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 18:46:54 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/11 13:32:47 by mhoussas         ###   ########.fr       */
+/*   Created: 2025/02/11 09:23:12 by mhoussas          #+#    #+#             */
+/*   Updated: 2025/02/11 09:23:22 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void	ft_print_instructions(t_instruction *lst)
-{
-	while (lst)
-	{
-		ft_putstr_fd(lst->content, 1);
-		ft_putstr_fd("\n", 1);
-		lst = lst->next;
-	}
-}
+

@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:01:51 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/10 16:54:43 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:16:19 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static int	ft_get(t_list *lst)
 	{
 		meduim = ft_lstsize(lst) / 2;
 		lst_max = ft_create_lst(lst, meduim);
-		int j = 0;
 	}
 	if (ft_lstsize(lst) == meduim)
 	{
