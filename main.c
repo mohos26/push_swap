@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:01:08 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/11 13:33:21 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:56:25 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,6 @@ void	ft_sort_three(t_stackes **stackes)
 		lst[2] = *(aid->next->next->content);
 		ft_aid(*stackes, lst);
 	}
-}
-
-int	ft_is_sorted(t_stackes *stackes)
-{
-	int		lst2[2];
-	t_list	*lst;
-
-	lst = stackes->stack_a;
-	lst2[0] = INT_MIN;
-	while (lst)
-	{
-		lst2[1] = *(lst->content);
-		if (lst2[1] < lst2[0])
-			return (0);
-		lst2[0] = lst2[1];
-		lst = lst->next;
-	}
-	return (!(stackes->stack_b && ft_lstsize(stackes->stack_b)));
 }
 
 int	ft_get_min(t_list *lst, int flag)

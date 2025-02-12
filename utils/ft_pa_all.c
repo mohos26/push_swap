@@ -6,11 +6,11 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:27:21 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/05 15:30:54 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:38:07 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../header.h"
 
 void	ft_pa_all(t_stackes **stackes)
 {

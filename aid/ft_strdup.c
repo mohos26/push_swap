@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:29:16 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/10 18:59:43 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:41:50 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ char	*ft_strdup(const char *s1)
 	char	*ptr;
 	char	*head;
 
-	ptr = (char *) malloc(ft_strlen(s1) * sizeof(char) + 1);
-	if (!ptr)
-		return (NULL);
+	ptr = (char *)ft_malloc(ft_strlen(s1) * sizeof(char) + 1);
 	head = ptr;
 	while (*s1)
 		*ptr++ = *s1++;

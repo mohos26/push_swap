@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 09:29:49 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/02 18:21:22 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:42:10 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ char	**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	res = (char **)ft_malloc((count_word(s, c) + 1) * sizeof(char *));
-	if (!res)
-		return (NULL);
 	i = 0;
 	while (*s)
 	{
@@ -59,8 +57,6 @@ char	**ft_split(const char *s, char c)
 		if (*s)
 		{
 			res[i] = (char *)ft_malloc((find(s, c) + 1) * sizeof(char));
-			if (!res[i])
-				return (NULL);
 			ft_memcpy(res[i], s, find(s, c));
 			res[i++][find(s, c)] = '\0';
 			s += find(s, c);

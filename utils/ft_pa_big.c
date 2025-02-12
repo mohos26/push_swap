@@ -6,11 +6,11 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:06:05 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/10 17:31:44 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:38:11 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../header.h"
 
 static int	ft_aid(t_list *lst, int n)
 {

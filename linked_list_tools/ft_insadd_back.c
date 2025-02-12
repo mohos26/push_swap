@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_insadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 13:37:29 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/12 21:24:35 by mhoussas         ###   ########.fr       */
+/*   Created: 2024/10/31 16:00:15 by mhoussas          #+#    #+#             */
+/*   Updated: 2025/02/11 16:27:25 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void	ft_sa(t_stackes *stacks)
+void	ft_insadd_back(t_instruction **lst, t_instruction *new)
 {
-	ft_insadd_back(&stacks->instructions, ft_insnew("sa"));
-	ft_swap(&stacks->stack_a);
+	t_instruction	*aid;
+
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		aid = *lst;
+		while (aid->next)
+			aid = aid->next;
+		aid->next = new;
+	}
 }

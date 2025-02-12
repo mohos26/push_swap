@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 15:16:37 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/02/10 18:43:19 by mhoussas         ###   ########.fr       */
+/*   Created: 2025/02/12 17:57:00 by mhoussas          #+#    #+#             */
+/*   Updated: 2025/02/12 18:54:03 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-t_instruction	*ft_insnew(void *content)
+int	ft_is_sorted(t_stackes *stackes)
 {
-	t_instruction	*res;
+	int		lst2[2];
+	t_list	*lst;
 
-	res = (t_instruction *) ft_malloc(sizeof(t_instruction));
-	if (!res)
-		return (NULL);
-	res->content = content;
-	res->next = NULL;
-	return (res);
+	lst = stackes->stack_a;
+	lst2[0] = INT_MIN;
+	while (lst)
+	{
+		lst2[1] = *(lst->content);
+		if (lst2[1] < lst2[0])
+			return (0);
+		lst2[0] = lst2[1];
+		lst = lst->next;
+	}
+	return (!(stackes->stack_b && ft_lstsize(stackes->stack_b)));
 }

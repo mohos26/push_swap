@@ -6,7 +6,7 @@
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:28:52 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/01/30 18:44:50 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:32:41 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_lst_del_first(t_list **lst)
 {
-	t_list	*aid;
-
 	if (!lst && !*lst)
 		return ;
 	*lst = (*lst)->next;
