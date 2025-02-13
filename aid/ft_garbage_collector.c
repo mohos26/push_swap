@@ -33,7 +33,7 @@ void	ft_exit(int status)
 	ft_free(NULL, 1);
 	if (status)
 		ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit(status);
 }
 
 void	*ft_malloc(size_t size)
